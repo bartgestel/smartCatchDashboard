@@ -32,5 +32,6 @@ class BoatCheck extends Controller
                 echo "test nee";
             }
         }
+        return view('home');
     }
 }
