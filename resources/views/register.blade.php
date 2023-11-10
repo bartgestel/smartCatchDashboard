@@ -11,9 +11,9 @@
     <div id="registerContainer">
         <form action="/register" method="POST">
             @csrf
-            <input type="text" name="registerName" id="registerName" placeholder="Username">
-            <input type="email" name="registerEmail" id="registerEmail" placeholder="Email">
-            <input type="password" name="registerPass" id="registerPass" placeholder="Password">
+            <label for="registerName"></label><input type="text" name="registerName" id="registerName" placeholder="Username">
+            <label for="registerEmail"></label><input type="email" name="registerEmail" id="registerEmail" placeholder="Email">
+            <label for="registerPass"></label><input type="password" name="registerPass" id="registerPass" placeholder="Password">
             <button>Register</button>
         </form>
     </div>
