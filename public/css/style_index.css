@@ -1,0 +1,26 @@
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    align-items: center;
+    padding: 20px 10px; 
+    padding-bottom: 580px;
+  }
+  
+  .logo img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .home{
+    flex: 1;
+    text-align: center;
+    
+  }
+
+  .home a {
+    color: black; 
+    font-size: 24px; 
+    text-decoration: none;
+  }
+
