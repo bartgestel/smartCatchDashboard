@@ -2,26 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Ship;
 use App\Models\Haul;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class BoatCheck extends Controller
 {
     public function boatCheck(){
-        $boats = [];
         if(auth()->check()){
-            $company = auth()->user()->first()->company_id;
-            $boats = Ship::where('company_id', $company)->get();
+            $user = Auth::id();
+            $company = User::select('company_id')->where('id', $user)->get();
+            $boats = Ship::where('company_id', $company[0]->company_id)->get();
+            return view('home', ['boats' => $boats]);
+        }else{
+            return redirect('/');
         }
-        return view('home', ['boats' => $boats]);
     }
 
     public function getBoats(int $id){
         if(auth()->check()){
-            $company_id = auth()->user()->first()->id;
+            $user = Auth::id();
+            $company_id = User::select('company_id')->where('id', $user)->get();
             $boat = Ship::where("id", $id)->first();
-            if($boat['company_id'] == $company_id){
+            if($boat['company_id'] == $company_id[0]->company_id){
                 $weight = 0;
                 $catch = Haul::where('ship_id', $boat['id'])->orderBy('date', 'desc')->get();
                 foreach ($catch as $kilo){
@@ -29,9 +36,10 @@ class BoatCheck extends Controller
                 }
                 return view('boat', ['weight' => $weight, 'catch' => $catch, 'boat' => $boat]);
             }else{
-                echo "test nee";
+                return redirect('/home');
             }
+        }else{
+            return redirect('/');
         }
-        return view('home');
     }
 }
