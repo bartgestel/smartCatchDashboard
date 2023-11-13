@@ -23,7 +23,7 @@ class BoatCheck extends Controller
             $boat = Ship::where("id", $id)->first();
             if($boat['company_id'] == $company_id){
                 $weight = 0;
-                $catch = Haul::where('ship_id', $boat['id'])->get();
+                $catch = Haul::where('ship_id', $boat['id'])->orderBy('date', 'desc')->get();
                 foreach ($catch as $kilo){
                     $weight = $weight+$kilo['weight'];
                 }
