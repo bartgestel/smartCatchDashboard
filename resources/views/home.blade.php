@@ -13,9 +13,14 @@
             @csrf
             <button>Logout</button>
         </form>
+        <form action="/weight" method="POST">
+            @csrf
+            <button>Calculate total weight</button>
+        </form>
         @foreach($boats as $boat)
             <a href="boats/{{$boat['id']}}">{{$boat['name']}}</a>
         @endforeach
+        <p>Caught in total: {{$weight[0]->caught_kg}}KG</p>
     @else
         <h1>You are not logged in</h1>
     @endauth

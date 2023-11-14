@@ -22,8 +22,11 @@ Route::get('/', function () {
 Route::get('/signup', function(){
     return view('register');
 });
+
+//Routes for BoatCheck
 Route::get('/home', [BoatCheck::class, 'boatCheck']);
 Route::get('/boats/{id}', [BoatCheck::class, 'getBoats']);
+Route::post('/weight', [BoatCheck::class, 'weight']);
 
 //Routes for userController
 Route::post('/login', [UserController::class, 'login']);
