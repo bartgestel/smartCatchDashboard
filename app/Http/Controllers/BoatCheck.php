@@ -19,7 +19,8 @@ class BoatCheck extends Controller
             $companyId = User::select('company_id')->where('id', $user)->get();
             $boats = Ship::where('company_id', $companyId[0]->company_id)->get();
             $weight = Company::select('caught_kg')->where('id', $companyId[0]->company_id)->get();
-            return view('home', ['boats' => $boats, 'weight' => $weight]);
+            $weightYear = $this->weightYear();
+            return view('home', ['boats' => $boats, 'weight' => $weight, 'weightYear' => $weightYear]);
         }else{
             return redirect('/');
         }
@@ -60,5 +61,20 @@ class BoatCheck extends Controller
         }
         Company::where('id', $company[0]->company_id)->update(['caught_kg' => $totalweight]);
         return redirect('/home');
+    }
+
+    public function weightYear()
+    {
+        $weightYear = 0;
+        $user = Auth::id();
+        $companyId = User::select('company_id')->where('id', $user)->get();
+        $boats = Ship::where('company_id', $companyId[0]->company_id)->get();
+        foreach ($boats as $boat){
+            $catch = Haul::select('weight')->where('ship_id', $boat['id'])->whereYear('date', date('Y'))->get();
+            foreach ($catch as $haulweight){
+                $weightYear = $weightYear + $haulweight['weight'];
+            }
+        }
+        return $weightYear;
     }
 }

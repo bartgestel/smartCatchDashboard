@@ -1,0 +1,250 @@
+body{
+    margin: 0;
+    font-family: Arial;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #4a5568;
+}
+
+.logo{
+    float: left;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+}
+
+#logo{
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+#nav-text{
+    float: right;
+    margin-top: 40px;
+}
+
+section {
+    padding: 32px;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
+.ship-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    padding: 16px;
+    width: 300px;
+    text-align: center;
+}
+
+.ship-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    font-size: 17px;
+    color: black;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: 15px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+}
+
+#data-container{
+    text-align: center;
+}
+
+#boat-name{
+    text-decoration: none;
+    color: black;
+}
+
+#boat-name h1{
+    font-size: 20px;
+}
+
+body {
+    margin: 0;
+}
+
+.titel {
+    font-size: 30px;
+    margin-left: 400px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.form-group {
+    text-align: left;
+    margin: 30px 0;
+}
+
+.label {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    width: 100%;
+}
+
+.logo img {
+    width: 250px;
+    height: 250px;
+}
+
+.button {
+    bottom: 130px;
+    left: 600px;
+    z-index: 2;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 33px;
+    border-radius: 50px;
+    width: 200px;
+}
+
+.button1 {
+    background-color: darkcyan;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    text-align: center;
+}
+
+#button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.button1:hover {
+    background-color: cadetblue;
+}
+
+
+.nav {
+    flex: 1;
+    text-align: center;
+}
+
+.nav a {
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+    margin: 0 40px;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+}
+
+
+.data-section,
+.chart-section,
+.info-section {
+    padding: 2em;
+}
+
+.data-container,
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.data-card,
+.chart-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    padding: 16px;
+    width: 300px;
+    text-align: center;
+}
+
+
+
+

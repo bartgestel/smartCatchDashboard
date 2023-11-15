@@ -1,28 +1,51 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <title>Smart Catch</title>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Smartcatch | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website for Smart Catch">
+    <meta name="author" content="Safa Hassan">
+    <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
 </head>
 <body>
     @auth
-        <form action="/logout" method="POST">
-            @csrf
-            <button>Logout</button>
-        </form>
-        <form action="/weight" method="POST">
-            @csrf
-            <button>Calculate total weight</button>
-        </form>
-        @foreach($boats as $boat)
-            <a href="boats/{{$boat['id']}}">{{$boat['name']}}</a>
-        @endforeach
-        <p>Caught in total: {{$weight[0]->caught_kg}}KG</p>
+        <div class="header">
+            <div class="nav">
+                    <img src="{{URL::asset('img/logo.png')}}" alt="Smart Catch" id="logo">
+                <div id="nav-text">
+                    <a href="/index">Home</a>
+                    <div class="dropdown">
+                        <a class="dropbtn">Select a ship</a>
+                        <div class="dropdown-content">
+                            @foreach($boats as $boat)
+                                <a href="/boats/{{$boat['id']}}">{{$boat['name']}}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div id="data-container">
+            <h1>Total amount of fish caught this year</h1>
+            <div>
+                <p>{{$weightYear}}KG</p>
+            </div>
+        </div>
+        <div class="dashboard-container">
+            @foreach($boats as $boat)
+                <div class="ship-card">
+                    <a href="/boats/{{$boat['id']}}"><img src="{{URL::asset('img/boat1.png')}}" alt="Ship 2"></a>
+                    <a id="boat-name" href="/boats/{{$boat['id']}}"><h1 >{{$boat['name']}}</h1></a>
+                </div>
+            @endforeach
+        </div>
+        <footer>
+            <p>&copy; 2023 SmartCatch</p>
+        </footer>
     @else
-        <h1>You are not logged in</h1>
+        <?php  return redirect('/')?>
     @endauth
 </body>
 </html>

@@ -6,17 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Website for Smart Catch">
     <meta name="author" content="Safa Hassan">
-    <link rel="stylesheet" href="{{URL::asset('css/style_inlog.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rozha+One">
 </head>
 <body>
 
 
     @auth
-        <form action="/logout" method="POST">
-            @csrf
-            <button>Logout</button>
-        </form>
+        <a href="/logout">Logout</a>
     @else
         <div class="container">
             <div class="logo">
